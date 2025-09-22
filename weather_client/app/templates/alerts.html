@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% block title %}WeatherNow | Alert Settings{% endblock %}
+{% block content %}
+    <div class="sq-top">
+        <div class="sq-title-container">
+            <h1 class="sq-title">WeatherNow</h1>
+        </div>
+        
+    </div>
+    <div class="sq-breadcrumb">
+        <a class="sq-breadcrumb-pill" href="{{url_for('routes.home')}}">Home</a>
+        <p class="sq-arrow">></p>
+        <a class="sq-breadcrumb-pill" href="{{url_for('routes.alerts')}}">Alerts</a>
+    </div>
+    <br>
+    <div class="sq-middle-two">
+    <h1 class="sq-title-two">Alert Settings</h1>
+    <div class="sq-form-container">
+        <form class="sq-form" id="alertForm" method="POST">
+            <div class="sq-settings-wrap">
+                <div class="sq-settings-add-line">
+                    <label for="active" class="sq-label">Active:</label>
+                    <p>List only active alerts</p>
+                    <div class="input-wrapper">
+                        <select id="active" name="active">
+                            <option value="">--</option>
+                            <option value="true">true</option>
+                            <option value="false">false</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sq-settings-add-line">
+                    <label for="start-time" class="sq-label">Start time:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="start-time" class="sq-input" name="start-time">
+                    </div>
+                </div>
+                
+                <div class="sq-settings-add-line">
+                    <label for="end-time" class="sq-label">End time:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="end-time" class="sq-input" name="end-time">
+                    </div>
+                </div>
+
+                <div class="sq-settings-add-line">
+                    <label for="status" class="sq-label">Alert Status:</label>
+                    <div class="input-wrapper">
+                        <select id="status" name="status">
+                            <option value="">--</option>
+                            <option value="true">actual</option>
+                            <option value="false">exercise</option>
+                            <option value="false">system</option>
+                            <option value="false">test</option>
+                            <option value="false">draft</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sq-settings-add-line">
+                    <label for="message-type" class="sq-label">Message Type:</label>
+                    <div class="input-wrapper">
+                        <select id="message-type" name="message-type">
+                            <option value="">--</option>
+                            <option value="true">alert</option>
+                            <option value="false">update</option>
+                            <option value="false">cancel</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sq-settings-add-line">
+                    <label for="event" class="sq-label">Event Name:</label>
+                    <div class="sq-input-wrap">
+                        <input type="text" id="event" class="sq-input" name="event">
+                        <button type="button" value="delete" class="btn sq-delete-button">Delete</button>
+                    </div>
+                    <button type="button" value="add-item" class="btn sq-add-button">Add item</button>
+                </div>
+                <div class="sq-settings-add-line">
+                    <label for="code" class="sq-label">Event Code:</label>
+                    <div class="sq-input-wrap">
+                        <input type="text" id="code" class="sq-input" name="code">
+                        <button type="button" value="delete" class="btn sq-delete-button">Delete</button>
+                    </div>
+                    <button type="button" value="add-item" class="btn sq-add-button">Add item</button>
+                </div>
+                <div class="sq-settings-add-line">
+                    <label for="area" class="sq-label">Area:</label>
+                    
+                    <p>State/territory code or marine area code.</p>
+                    <p>This parameter is incompatible with the following parameters: point, region, region_type, zone.</p>
+                    <div class="sq-input-wrap">
+                        <input type="text" id="area" class="sq-input" name="area">
+                        
+                        <button type="button" value="delete" class="btn sq-delete-button">Delete</button>
+                    </div>
+                    <button type="button" value="add-item" class="btn sq-add-button">Add item</button>
+                </div>
+                <div class="sq-settings-submit">
+                    <input type="submit" value="Submit" class="btn sq-submit">
+                </div>
+            </div>
+
+            <div class="sq-settings-wrap">
+                <div class="sq-settings-add-line">
+                    <label for="point" class="sq-label">Point:</label>
+                    <p>(latitude,longitude)</p>
+                    <p>This parameter is incompatible with the following parameters: area, region, region_type, zone.</p>
+                    <div class="sq-input-wrap">
+                        <input type="text" id="point" class="sq-input" name="point">
+                        <button type="button" value="delete" class="btn sq-delete-button">Delete</button>
+                    </div>
+                    <button type="button" value="add-item" class="btn sq-add-button">Add item</button>
+                </div>
+                <div class="sq-settings-add-line">
+                    <label for="region" class="sq-label">Region:</label>
+                    <p>Marine region code.</p>
+                    <p>This parameter is incompatible with the following parameters: area, point, region_type, zone</p>
+                    <div class="input-wrapper">
+                        <select id="region" name="region">
+                            <option value="">--</option>
+                            <option value="true">AL</option>
+                            <option value="false">AT</option>
+                            <option value="false">GL</option>
+                            <option value="false">PA</option>
+                            <option value="false">PI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sq-settings-add-line">
+                    <label for="region-type" class="sq-label">Region Type:</label>
+                    <p>This parameter is incompatible with the following parameters: area, point, region, zone</p>
+                    <div class="input-wrapper">
+                        <select id="region-type" name="region-type">
+                            <option value="">--</option>
+                            <option value="true">Land</option>
+                            <option value="false">Maritime</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sq-settings-add-line">
+                    <label for="zone" class="sq-label">Zone ID:</label>
+                    <p>(forecast or county)</p>
+                    <p>This parameter is incompatible with the following parameters: area, point, region, region_type</p>
+                    <div class="sq-input-wrap">
+                        <input type="text" id="zone" class="sq-input" name="zone">
+                        <button type="button" value="delete" class="btn sq-delete-button">Delete</button>
+                    </div>
+                    <button type="button" value="add-item" class="btn sq-add-button">Add item</button>
+                </div>
+                <div class="sq-settings-add-line">
+                    <label for="urgency" class="sq-label">Urgency:</label>
+                    <div class="input-wrapper">
+                        <select id="urgency" name="urgency">
+                            <option value="">--</option>
+                            <option value="true">Immediate</option>
+                            <option value="false">Expected</option>
+                            <option value="false">Future</option>
+                            <option value="false">Past</option>
+                            <option value="false">Unknown</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sq-settings-add-line">
+                    <label for="severity" class="sq-label">Severity:</label>
+                    <div class="input-wrapper">
+                        <select id="severity" name="severity">
+                            <option value="">--</option>
+                            <option value="true">Extreme</option>
+                            <option value="false">Severe</option>
+                            <option value="false">Moderate</option>
+                            <option value="false">Minor</option>
+                            <option value="false">Unknown</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sq-settings-add-line">
+                    <label for="certainty" class="sq-label">Certainty:</label>
+                    <div class="input-wrapper">
+                        <select id="certainty" name="certainty">
+                            <option value="">--</option>
+                            <option value="true">Observed</option>
+                            <option value="false">Likely</option>
+                            <option value="false">Possible</option>
+                            <option value="false">Unlikely</option>
+                            <option value="false">Unknown</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sq-settings-add-line">
+                    <label for="limit" class="sq-label">Limit:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="limit" class="sq-input" name="limit">
+                    </div>
+                </div>
+
+                <div class="sq-settings-add-line">
+                    <label for="cursor" class="sq-label">Pagination Cursor:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="cursor" class="sq-input" name="cursor">
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

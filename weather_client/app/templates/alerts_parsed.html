@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}WeatherNow | Alerts{% endblock %}
+{% block content %}
+    <div class="sq-top">
+        <div class="sq-title-container">
+            <h1 class="sq-title">WeatherNow</h1>
+        </div>
+        
+    </div>
+    <div class="sq-breadcrumb">
+        <a class="sq-breadcrumb-pill" href="{{url_for('routes.home')}}">Home</a>
+        <p class="sq-arrow">></p>
+        <a class="sq-breadcrumb-pill" href="{{url_for('routes.glossary')}}">Alerts</a>
+    </div>
+    <br>
+    <div class="sq-middle-two">
+    <h1 class="sq-title-two">Alerts</h1>
+    <div class="sq-form-container">
+        {% for resp in resps %}
+            <div class="sq-settings-add-line">   
+                {% for k, v in resp.items() %}
+                    <div class="alert-wrapper alert-line">
+                        <div class="alert-key">{{k}}:</div>
+                        <div class="alert-value">{{v}}</div>
+                    </div>
+                {% endfor %}
+            </div> 
+            <br>
+        {% endfor %}
+        
+    </div>
+</div>
+{% endblock %}

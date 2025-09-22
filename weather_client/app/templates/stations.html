@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}WeatherNow | Stations{% endblock %}
+{% block content %}
+    <div class="sq-top">
+        <div class="sq-title-container">
+            <h1 class="sq-title">WeatherNow</h1>
+        </div>
+        
+    </div>
+    <div class="sq-breadcrumb">
+        <a class="sq-breadcrumb-pill" href="{{url_for('routes.home')}}">Home</a>
+        <p class="sq-arrow">></p>
+        <a class="sq-breadcrumb-pill" href="{{url_for('routes.stations')}}">Stations</a>
+    </div>
+    <br>
+    <div class="sq-middle-two">
+    <h1 class="sq-title-two">Stations</h1>
+    <div class="sq-form-container">
+        <div class="sq-console-container">
+            <div class="sq-console-window"></div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
